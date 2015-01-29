@@ -57,9 +57,9 @@ void Random::variableTest()
 int main()
 {
 	srand(time(0));
-	Random *random = new Random();
+	//Random *random = new Random();
 	//random->generateExponentialRanVar();
-	delete random;
+	//delete random;
 	Queue *q = new Queue();
 	q->simulate();
 	delete q;

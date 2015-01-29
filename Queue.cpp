@@ -30,7 +30,7 @@ void Queue::simulate()
 	Random *random = new Random();
 	while(t_arrival < (double)T_time)
 	{
-                //cout<< t_arrival << endl;
+                std::cout<< t_arrival << std::endl;
 		t_arrival += random->generateExponentialRanVar();
 		Packet *packet = new Packet(Packet::arrival, t_arrival);
                 //printf("type: %c\n", packet->event);
@@ -44,6 +44,6 @@ void Queue::simulate()
 //            std::cout << DES[i]->event << std::endl;
 //        }
 
-        std::cout << DES.size() << std::endl;
+    std::cout << DES.size() << std::endl;
 	DES.clear();
 }

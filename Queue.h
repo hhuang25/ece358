@@ -11,7 +11,7 @@
 class Queue
 {
 	public:
-		static const int T_time = 10;
+		static const int T_time = 1;
 		int n_arrivals, n_departures, n_observers, n_idle_count, n_packets;
 		double t_arrival, t_departure, t_observer;
 		std::vector<Packet*> DES;
