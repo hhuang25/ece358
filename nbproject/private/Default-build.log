@@ -1,0 +1,1 @@
+g++ random.o queue.o -o lab1.exe
