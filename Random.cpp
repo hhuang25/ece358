@@ -19,12 +19,17 @@ double Random::generateExponentialRanVar()
 {
 	//expected mean = 1/ lambda = 1/75 = 0.013333
 	//expected variance = 1/lambda^2 = 1/5625 = 0.000177778
-	return generateExponentialRanVar(75);
+	return generateExponentialRanVar(lambda);
 }
 
 double Random::generateExponentialRanVar(int lambda)
 {
 	return ((double)(-1)/(double)lambda)*log(1-generateRanNum());
+}
+
+double Random::generateExponentialRanVar(double lambda)
+{
+	return ((double)(-1.0)/lambda)*log(1.0-generateRanNum());
 }
 
 void Random::variableTest()
@@ -57,9 +62,9 @@ void Random::variableTest()
 int main()
 {
 	srand(time(0));
-	//Random *random = new Random();
-	//random->generateExponentialRanVar();
-	//delete random;
+//	Random *random = new Random();
+//	std::cout<< random->generateExponentialRanVar(1.0/12000)<< std::endl;
+//	delete random;
 	Queue *q = new Queue();
 	q->simulate();
 	delete q;

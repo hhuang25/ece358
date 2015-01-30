@@ -1,6 +1,5 @@
 #ifndef PACKET_H
 #define PACKET_H
-#endif
 
 class Packet
 {
@@ -23,3 +22,4 @@ std::ostream& operator<< (std::ostream &out, Packet &packet)
 	return out;
 }
 */
+#endif
