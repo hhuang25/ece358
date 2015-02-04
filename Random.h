@@ -4,15 +4,15 @@
 class Random
 {
 	public:
-		static const int numbersTotal = 1000;
-                static const int lambda = 75;
+		const static int numbersTotal = 1000;
                 
 		double generatedNumbers[numbersTotal];
-
+                Random();
 		double generateRanNum();
 		double generateExponentialRanVar();
 		double generateExponentialRanVar(int lambda);
                 double generateExponentialRanVar(double lambda);
+                
 		void variableTest();
 		
 };
