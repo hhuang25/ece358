@@ -74,7 +74,7 @@ void Queue::simulate()
             
             //std::cout<< "t_arrival: "<< (double)t_arrival<< std::endl;
             joshcounter++;
-            //std::cout<<"Hello1.5 "<<t_arrival<<std::endl;
+//            std::cout<<"Hello1.5 "<<t_arrival<<std::endl;
     }
     std::cout<<"Hello2"<<std::endl;
     while(t_observer < (double)T_time)
@@ -82,7 +82,7 @@ void Queue::simulate()
         t_observer += random->generateExponentialRanVar(gamma);
         DES[t_observer] = observer;
         joshcounter_obs++;
-        //std::cout<<"Hello2.5"<<std::endl;
+//        std::cout<<"Hello2.5"<<std::endl;
     }
     std::cout<<"done generation of packets!"<<std::endl;
     //while(!DES.empty())
@@ -94,7 +94,7 @@ void Queue::simulate()
         double eventTime = iter->first;
         if(event == arrival)
         {
-            std::cout<<"Arrival"<<std::endl;
+//            std::cout<<"Arrival"<<std::endl;
             //std::cout<< "t_arrival: "<< (double)eventTime<< std::endl;
             packetLength = random->generateExponentialRanVar(1.0/L_length);
             serviceTime = packetLength/(double)C_rate;
@@ -108,12 +108,12 @@ void Queue::simulate()
             //DES.erase(iter);
         }
         else if(event == departure){
-            std::cout<<"Departure"<<std::endl;
+//            std::cout<<"Departure"<<std::endl;
             n_departures++;
             //DES.erase(iter);
         }
         else if(event == observer){
-            std::cout<<"Observer"<<std::endl;
+//            std::cout<<"Observer"<<std::endl;
             n_observers++;
             n_packets += n_arrivals - n_departures;
             if((n_arrivals - n_departures) == 0){
@@ -130,7 +130,7 @@ void Queue::simulate()
     std::cout<< "n_departures: "<< n_departures<< std::endl;
     std::cout<< "# of observers: "<< (double)n_observers<< std::endl;
     std::cout<< "idle probability: "<< (double)n_idle_count/n_observers<< std::endl;
-    std::cout<< "utilization: "<< (double)gamma*L_length/C_rate<< std::endl;
+//    std::cout<< "utilization: "<< (double)gamma*L_length/C_rate<< std::endl;
     delete random;
     
 //    std::cout << "DES contains:\n";
