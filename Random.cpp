@@ -17,20 +17,7 @@ Random::Random()
 
 double Random::generateRanNum()
 {
-	return (rand() / (double)(RAND_MAX+1));
-}
-
-double Random::generateExponentialRanVar()
-{
-    int m_lambda = 75;
-    //expected mean = 1/ lambda = 1/75 = 0.013333
-    //expected variance = 1/lambda^2 = 1/5625 = 0.000177778
-    return generateExponentialRanVar(m_lambda);
-}
-
-double Random::generateExponentialRanVar(int lambda)
-{
-	return ((double)(-1)/(double)lambda)*log(1-generateRanNum());
+	return (rand() / (double)(RAND_MAX));
 }
 
 double Random::generateExponentialRanVar(double lambda)
@@ -44,7 +31,7 @@ void Random::variableTest()
 	total = 0;
 	for(int i = 0; i < numbersTotal; i++)
 	{
-		number = generateExponentialRanVar();
+		number = generateExponentialRanVar(75.0);
 		total += number;
 		generatedNumbers[i] = number;
 	}
@@ -79,14 +66,14 @@ int main()
             Queue *q = new Queue();
         for(double ro = 0.25; ro <=0.25; ro+= 0.1)
         {
-            q->setT(10000);
-            int C=q->setC(1000000);
-            int L=q->setL(12000);
-            q->setLambda(ro/(double)L*C);
-            std::cout<<std::endl<<"Rho = "<<ro<<std::endl;
-            std::cout<<"L = "<<L<<std::endl;
-            std::cout<<"C = "<<C<<std::endl;
-            std::cout<<"lambda = "<<q->lambda<<std::endl;
+//            q->setT(10000);
+//            int C=q->setC(1000000);
+//            int L=q->setL(12000);
+//            q->setLambda(ro/(double)L*C);
+//            std::cout<<std::endl<<"Rho = "<<ro<<std::endl;
+//            std::cout<<"L = "<<L<<std::endl;
+//            std::cout<<"C = "<<C<<std::endl;
+//            std::cout<<"lambda = "<<q->lambda<<std::endl;
             q->simulate();
         }
             delete q;

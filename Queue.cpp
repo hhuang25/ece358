@@ -31,16 +31,24 @@ Queue::~Queue()
 
 void Queue::simulate()
 {
-    double gamma = 3*lambda;
+    std::map<double, Event> DES;
+    
     double packetLength, serviceTime = 0;
-    /*
-    double T_time;
-    double C_rate; 
-    double L_length;
-    double lambda;
+    
+    double T_time = 10000;
+    double C_rate = 1000000; 
+    double L_length = 12000;
+    double lambda = ((double)0.25/(double)L_length)*(double)C_rate;
+    
+    std::cout<<"L = "<<L_length<<std::endl;
+    std::cout<<"C = "<<C_rate<<std::endl;
+    std::cout<<"lambda = "<<lambda<<std::endl;
+    
+    double gamma = 3*lambda;
+    
     long n_arrivals, n_departures, n_observers, n_idle_count, n_packets;
     double t_arrival, t_departure, t_observer;
-      */  
+    std::cout<<"Hello1"<<std::endl;
     n_arrivals = 0;
     n_departures = 0;
     n_observers = 0;
@@ -66,13 +74,17 @@ void Queue::simulate()
             
             //std::cout<< "t_arrival: "<< (double)t_arrival<< std::endl;
             joshcounter++;
+            //std::cout<<"Hello1.5 "<<t_arrival<<std::endl;
     }
+    std::cout<<"Hello2"<<std::endl;
     while(t_observer < (double)T_time)
     {
         t_observer += random->generateExponentialRanVar(gamma);
         DES[t_observer] = observer;
         joshcounter_obs++;
+        //std::cout<<"Hello2.5"<<std::endl;
     }
+    std::cout<<"done generation of packets!"<<std::endl;
     //while(!DES.empty())
     typedef std::map<double,Event>::iterator it;
     for(it iter = DES.begin(); iter != DES.end(); ++iter)
@@ -82,6 +94,7 @@ void Queue::simulate()
         double eventTime = iter->first;
         if(event == arrival)
         {
+            std::cout<<"Arrival"<<std::endl;
             //std::cout<< "t_arrival: "<< (double)eventTime<< std::endl;
             packetLength = random->generateExponentialRanVar(1.0/L_length);
             serviceTime = packetLength/(double)C_rate;
@@ -95,10 +108,12 @@ void Queue::simulate()
             //DES.erase(iter);
         }
         else if(event == departure){
+            std::cout<<"Departure"<<std::endl;
             n_departures++;
             //DES.erase(iter);
         }
         else if(event == observer){
+            std::cout<<"Observer"<<std::endl;
             n_observers++;
             n_packets += n_arrivals - n_departures;
             if((n_arrivals - n_departures) == 0){
