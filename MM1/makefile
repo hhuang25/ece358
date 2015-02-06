@@ -1,11 +1,9 @@
-all: lab1
+all: q2
 
-lab1: random.o queue.o
-	g++ random.o queue.o -g -o lab1.exe
+q2:
+	g++ Random.cpp Queue.cpp -o q2.o
+q1: 
+	g++ Random1.cpp Queue.cpp -o q1.o
 
-random.o: Random.cpp Random.h Queue.h
-	g++ -c Random.cpp
-queue.o: Queue.cpp Queue.h Random.h
-	g++ -c Queue.cpp
 clean:
-	rm lab1.exe
+	rm q1.o q2.o

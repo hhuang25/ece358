@@ -17,21 +17,21 @@ Random::Random()
 
 double Random::generateRanNum()
 {
-	return (rand() / (double)(RAND_MAX));
+	return (double)rand()/((double)RAND_MAX + 1);
 }
 
 double Random::generateExponentialRanVar(double lambda)
 {
-	return ((double)(-1.0)/lambda)*log(1.0-generateRanNum());
+	return ((-1.0)/lambda)*log(1.0-generateRanNum());
 }
 
 void Random::variableTest()
 {
 	double number, total, total2, mean, variance;
-	total = 0;
+	total = 0.0;
 	for(int i = 0; i < numbersTotal; i++)
 	{
-		number = generateExponentialRanVar(75.0);
+		number = generateExponentialRanVar(75);
 		total += number;
 		generatedNumbers[i] = number;
 	}
@@ -49,7 +49,7 @@ void Random::variableTest()
 		std::cout<< generatedNumbers[i] << "\n";
 	}
 	std::cout<< "Mean: " << mean << "\n";
-	std::cout<< "Variance: " << variance;
+	std::cout<< "Variance: " << variance<<std::endl;
 }
 
 /**
@@ -60,13 +60,12 @@ void Random::variableTest()
 int main()
 {
 //  For M/M/1: when p = 0.25s, E[N] = 1/3, P_idle = 0.75
-	srand(time(0));
-	// Random *random = new Random();
-	// std::cout<< random->generateExponentialRanVar(1.0/12000)<< std::endl;
-	// random->variableTest();
-	// delete random;
-	// return 0;
-	
+	srand(time(NULL));
+	Random *random = new Random();
+	random->variableTest();
+	delete random;
+	return 0;
+	/*
 	for(double ro = 0.25; ro <=0.95; ro+= 0.1)
 	{
 		Queue *q = new Queue();
@@ -81,7 +80,7 @@ int main()
 		q->simulate();
 		delete q;
 	}
-	
+	*/
 	for(double ro = 1.2; ro <=1.2; ro+= 0.1)
 	{
 		Queue *q = new Queue();
