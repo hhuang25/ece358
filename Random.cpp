@@ -56,27 +56,51 @@ void Random::variableTest()
  rho = lambda*L/C
  * 
  */
+        
 int main()
 {
-	srand(time(NULL));
-//	Random *random = new Random();
-//	std::cout<< random->generateExponentialRanVar(1.0/12000)<< std::endl;
-//	delete random;
-        
-            Queue *q = new Queue();
-        for(double ro = 0.25; ro <=0.25; ro+= 0.1)
-        {
-//            q->setT(10000);
-//            int C=q->setC(1000000);
-//            int L=q->setL(12000);
-//            q->setLambda(ro/(double)L*C);
-//            std::cout<<std::endl<<"Rho = "<<ro<<std::endl;
-//            std::cout<<"L = "<<L<<std::endl;
-//            std::cout<<"C = "<<C<<std::endl;
-//            std::cout<<"lambda = "<<q->lambda<<std::endl;
-            q->simulate();
-        }
-            delete q;
+//  For M/M/1: when p = 0.25s, E[N] = 1/3, P_idle = 0.75
+	srand(time(0));
+	/*
+	for(double ro = 0.25; ro <=0.95; ro+= 0.1)
+	{
+		Queue *q = new Queue();
+		// Random *random = new Random();
+		// std::cout<< random->generateExponentialRanVar(1.0/12000)<< std::endl;
+		// random->variableTest();
+		// delete random;
+		// return 0;
+		q->setT(10000);
+		double C=q->setC(1000000.0);
+		double L=q->setL(12000.0);
+		q->setLambda(ro/(double)L*C);
+		std::cout<<std::endl<<"Rho = "<<ro<<std::endl;
+		//std::cout<<"L = "<<L<<std::endl;
+		//std::cout<<"C = "<<C<<std::endl;
+		std::cout<<"lambda = "<<q->lambda<<std::endl;
+		q->simulate();
+		delete q;
+	}
+	*/
+	for(double ro = 1.2; ro <=1.2; ro+= 0.1)
+	{
+		Queue *q = new Queue();
+		// Random *random = new Random();
+		// std::cout<< random->generateExponentialRanVar(1.0/12000)<< std::endl;
+		// random->variableTest();
+		// delete random;
+		// return 0;
+		q->setT(10000);
+		double C=q->setC(1000000.0);
+		double L=q->setL(12000.0);
+		q->setLambda(ro/(double)L*C);
+		std::cout<<std::endl<<"Rho = "<<ro<<std::endl;
+		//std::cout<<"L = "<<L<<std::endl;
+		//std::cout<<"C = "<<C<<std::endl;
+		std::cout<<"lambda = "<<q->lambda<<std::endl;
+		q->simulate();
+		delete q;
+	}
 	return 0;
 }
 

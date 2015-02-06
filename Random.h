@@ -7,11 +7,10 @@ class Random
 		const static int numbersTotal = 1000;
                 
 		double generatedNumbers[numbersTotal];
-                Random();
+		
+		Random();
 		double generateRanNum();
-		double generateExponentialRanVar();
-		double generateExponentialRanVar(int lambda);
-                double generateExponentialRanVar(double lambda);
+		double generateExponentialRanVar(double lambda);
                 
 		void variableTest();
 		
