@@ -68,7 +68,7 @@ int main()
 	std::cout<<std::setw(8)<<", K= 5";
 	std::cout<<std::setw(8)<<", K=10";
 	std::cout<<std::setw(8)<<", K=40"<<std::endl;
-	/*
+	
 	for(double ro = 0.50; ro <=1.51; ro+= 0.1)
 	{
 		std::cout<<std::setw(8)<<std::endl<<ro << ",";
@@ -91,8 +91,8 @@ int main()
 		}
 	}
 	std::cout<<std::endl;
-	//return 0;
-	*/
+	return 0;
+	
 	for(double ro = 0.4; ro <1.99; ro+= 0.1)
 	{
 		std::cout<<std::setw(8)<<std::endl<<ro << ",";
@@ -135,7 +135,6 @@ int main()
 			delete q;		
 		}
 	}
-	/*
 	for(double ro = 5.0; ro <=10.0; ro+= 0.4)
 	{
 		std::cout<<std::setw(8)<<std::endl<<ro << ",";
@@ -157,7 +156,6 @@ int main()
 			delete q;		
 		}
 	}
-	*/
 	std::cout<<std::endl;
 	return 0;
 }
