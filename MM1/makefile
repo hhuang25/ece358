@@ -1,9 +1,9 @@
-all: q2
+all: q3
 
-q2:
-	g++ Random.cpp Queue.cpp -o q2.o
+q3:
+	g++ Random.cpp Queue.cpp -o q3.o
 q1: 
 	g++ Random1.cpp Queue.cpp -o q1.o
 
 clean:
-	rm q1.o q2.o
+	rm q1.o q3.o
